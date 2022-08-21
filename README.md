@@ -1,2 +1,2 @@
-# c#-documentation
-Technical documentation challenge for freeCodeCamp.
+# C#-Documentation (challenge)
+Technical documentation project for freeCodeCamp.

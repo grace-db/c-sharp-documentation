@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <title>Technical Documentation</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header id="title-card">
+        <h1 id="title">C# Documentation</h1>
+        <label class="switch" aria-hidden="true">
+          <input id="mode-btn" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#Hello_World">Hello World</a></li>
+        <li><a class="nav-link" href="#Types_and_Variables">Types and Variables</a></li>
+        <li><a class="nav-link" href="#Classes">Classes</a></li>
+        <li><a class="nav-link" href="#Objects">Objects</a></li>
+        <li><a class="nav-link" href="#Structs">Structs</a></li>
+        <li><a class="nav-link" href="#Interfaces">Interfaces</a></li>
+        <li><a class="nav-link" href="#Enums">Enums</a></li>
+        <li><a class="nav-link" href="#Delegates">Delegates</a></li>
+        <li><a class="nav-link" href="#Program_Structure">Program Structure</a></li>
+        <li><a class="nav-link" href="#Programs">Programs</a></li>
+        <li><a class="nav-link" href="#Namespaces">Namespaces</a></li>
+        <li><a class="nav-link" href="#Types">Types</a></li>
+        <li><a class="nav-link" href="#Members">Members</a></li>
+        <li><a class="nav-link" href="#Assemblies">Assemblies</a></li>
+        <li><a class="nav-link" href="#Closing_Comments">Closing Comments</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc" class="width-control">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <div class="section-content">
+          <p id="starting-comment">I got this information from the original <a href="https://docs.microsoft.com/en-us/">C# Documentation</a>. All credit goes to the creators at Microsoft. <span class="heart">&hearts;</span></p>
+          <p><strong>C#</strong> an object-oriented, <span class="emphasis">component-oriented</span> programming language.</p>
+          <p>C# is pronounced "See Sharp", and it is modern, object-oriented, and type-safe, stemming from its roots in the C family of languages.</p>
+          <p>C# enables developers to build many types of secure and robust applications that run in <a href="https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet">.NET</a>.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Hello_World">
+        <header>Hello World</header>
+        <div class="section-content">
+          <p>The "Hello, World" program is traditionally used to introduce a programming language. Here it is in C#:</p>
+          <code class="block-code">
+            <pre>
+              using System;
+
+              class Hello
+              {
+                  static void Main()
+                  {
+                      Console.WriteLine("Hello, World");
+                  }
+              }
+            </pre>
+          </code>
+          <p>The program starts with a <code class="inline-code">using</code> directive that references the <code class="inline-code">System</code> namespace. Namespaces provide a hierarchical means of organizing C# programs and libraries.</p>
+          <p>Namespaces contain types and other namespaces—for example, the <code class="inline-code">System</code> namespace contains a number of types, such as the <code class="inline-code">Console</code> class referenced in the program, and a number of other namespaces, such as <code class="inline-code">IO</code> and <code class="inline-code">Collections</code>. A <code class="inline-code">using</code> directive that references a given namespace enables unqualified use of the types that are members of that namespace.</p>
+          <p>There is plenty to learn regarding the C# language, though this documentation will give a brief overview of the language's many different aspects.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Types_and_Variables">
+        <header>Types and Variables</header>
+        <div class="section-content">
+          <p>A <em>type</em> defines the structure and behavior of any data in C#. The declaration of a type may include its members, base type, interfaces it implements, and operations permitted for that types. A <em>variable</em> is a label that refers to an instance of a specific type.</p>
+          <p>There are two kinds of types in C#: <em>value types</em> and <em>reference types</em>. Variables of value types directly contain their data. Variables of reference types store references to their data, the latter being known as objects.</p>
+          <p>An <span class="emphasis">identifier</span> is a variable name, and it is a sequence of unicode characters without any whitespace.</p>
+          <p>C#'s value types are further divided into <em>simple types, enum types, struct types, nullable value types,</em> and <em>tuple value types</em>. C#'s reference types are further divided into <em>class types, interface types, array types,</em> and <em>delegate types</em>.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Classes">
+        <header>Classes</header>
+        <div class="section-content">
+          <p>Classes are declared by using the <code class="inline-code">class</code> keyword followed by a unique identifier, as shown in the following example:</p>
+          <code class="block-code">
+            <pre>
+              // [access modifier] - [class] - [identifier]
+              public class Customer
+              {
+                // Fields, properties, methods, and events go here...
+              }
+            </pre>
+          </code>
+          <p>The <code class="inline-code">class</code> keyword is preceded by the access level. Because <code class="inline-code">public</code> is used in this case, anyone can create instances of this class. The name of the class follows the <code class="inline-code">class</code> keyword. The name of the class must be a valid C# identifier name. The remainder of the definition is in the class body, where the behavior and data are defined. Fields, properties, methods, and events on a class are collectively referred to as <em>class members</em>.</p>
+          <p>Classes fully support <em>inheritance</em>, a fundamental characteristic of object-oriented programming. When you create a class, you can inherit from any other class that is not defined as <code class="inline-code">sealed</code>, and other classes can inherit from your class and override class virtual methods.</p>
+          <p>Inheritance is accomplished by using a <em>derivation</em>, which means a class is declared by using a <em>base class</em> from which it inherits data and behavior. A base class is specified by appending a colon (:) and the name of the base class following the derived class name, like this:</p>
+          <code class="block-code">
+            <pre>
+              public class Manager : Employee
+              {
+                // Employee fields, properties, methods, and events are inherited
+                // New Manager fields, properties, methods, and events go here...
+              }
+            </pre>
+          </code>
+        </div>
+      </section>
+      <section class="main-section" id="Objects">
+        <header>Objects</header>
+        <div class="section-content">
+          <p>Although they are sometimes used interchangeably, a class and an object are different things. A class defines a type of object, but it is not an object itself. An object is a concrete entity based on a class, and is sometimes referred to as an instance of a class.</p>
+          <p>Objects can be created by using the <code class="inline-code">new</code> keyword followed by the name of the class that the object will be based on, like this:</p>
+          <code class="block-code">
+            <pre>
+              Customer object1 = new Customer();
+            </pre>
+          </code>
+        </div>
+      </section>
+      <section class="main-section" id="Structs">
+        <header>Structs</header>
+        <div class="section-content">
+          <p>Structs are similar to classes in that they represent data structures that can contain data members and function members. However, unlike classes, structs are value types and do not require heap allocation. A variable of a <code class="inline-code">struct</code> type directly contains the data of the <code class="inline-code">struct</code>, whereas a variable of a class type contains a reference to the data, the latter known as an object.</p>
+          <p>Structs are particularly useful for small data structures that have semantics. Complex numbers, points in a coordinate system, or key-value pairs in a dictionary are all good examples of structs.</p>
+          <p>A <em>struct_declaration</em> is a <em>type_declaration</em> that declares a new struct:</p>
+          <code class="block-code">
+            <pre>
+              struct_declaration
+                  : attributes? struct_modifier* 'partial'? 'struct' identifier
+                    type_parameter_list? struct_interfaces?
+                    type_parameter_constraints_clause* struct_body ';'?
+                  ;
+            </pre>
+          </code>
+          <p>A <em>struct_declaration</em> constists of an optional set of <em>attributes</em>, followed by an optional set of <em>struct_modifiers</em>, followed by an optional partial modifier, followed by the keyword <code class="inline-code">struct</code> and an <em>!identifier</em> that names the struct, followed by an optional <em>type_parameter_list</em> specification, followed by an optional <em>struct_interfaces</em> specification, followed by an optional <em>type_parameter_constraints_clauses</em> specification, followed by a <em>struct_body</em>, optionally followed by a semicolon.</p>
+          <p>A struct declaration shall not supply a <em>type_parameter_constraints_clauses</em> unless it also supplies a <em>type_parameter_list</em>.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Interfaces">
+        <header>Interfaces</header>
+        <div class="section-content">
+          <p>An interface defines a contract. A class or struct that implements an interface shall adhere to its contract. An interface may inherit from multiple base interfaces, and a class or struct may implement multiple interfaces.</p>
+          <p>Interfaces can contain methods, properties, events, and indexes. The interface itself does not provide implementations for the members that it declares. The interface merely specifies the members that shall be supplied by classes or structs that implement the interface.</p>
+          <p>An <em>interface_declaration</em> is a <em>type_declaration</em> that declares a new interface type.</p>
+          <code class="block-code">
+            <pre>
+              interface_declaration
+                  : attributes? interface_modifier* 'partial'? 'interface'
+                    identifier variant_type_parameter_list? interface_base?
+                    type_parameter_constraints_clause* interface_body ';'?
+                  ;
+            </pre>
+          </code>
+          <p>Interfaces may be implemented by classes and structs. To indicate that a class or struct directly implements an interface, the interface is included in the base class list of the class or struct. <em>Example:</em></p>
+          <code class="block-code">
+            <pre>
+              interface ICloneable
+              {
+                object Clone();
+              }
+
+              interface IComparable
+              {
+                int CompareTo(object other);
+              }
+
+              class ListEntry : ICloneable, Icomparable
+              {
+                public object Clone() {...}
+                public int CompareTo(object other) {...}
+              }
+            </pre>
+          </code>
+          <p>A class or struct that directly implements an interface also implicitly implements all of the interface's base interfaces. This is true even if the class or struct doesn't explicitly list all base interfaces in the base class list.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Enums">
+        <header>Enums</header>
+        <div class="section-content">
+          <p>An <em>enumeration type</em> or an (<em>enum type</em>) is a value type defined by a set of names constants of the underlying integral numeric type. To define an enumeration type, use the <code class="inline-code">enum</code> keyword and specify the names of <em>enum members</em>:</p>
+          <code class="block-code">
+            <pre>
+              enum Season
+              {
+                Spring,
+                Summer,
+                Autumn,
+                Winter
+              }
+            </pre>
+          </code>
+        </div>
+      </section>
+      <section class="main-section" id="Delegates">
+        <header>Delegates</header>
+        <div class="section-content">
+          <p>A delegate is a type that safely encapsulates a method, similar to a function pointer in C and C++. Unlike C function pointers, delegates are object-oriented, type safe, and secure. The type of a delegate is defined by the name of the delegate. The following example declares a delegate named <code class="inline-code">Del</code> that can encapsulate a method that takes a <code class="inline-code">string</code> as an argument and returns <code class="inline-code">void</code>:</p>
+          <code class="block-code">
+            <pre>
+              public delegate void Del(string message);
+            </pre>
+          </code>
+          <p>A delegate object is normally constructed by providing the name of the method the delegate will wrap, or with a lambda expression. Once a delegate is instantiated, a method call made to the delegate will be passed by the delegate to that method. The parameters passed to the delegate by the caller are passed to the method, and the return value, if any, from the method is returned to the caller by the delegate.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Program_Structure">
+        <header>Program Structure</header>
+        <div class="section-content">
+          <p>The key organizational concepts of C# are <span class="emphasis"><a href="#programs">programs</a>, <a href="#namespaces">namespaces</a>, <a href="#types">types</a>, <a href="#members">members</a>, and <a href="#assemblies">assemblies</a>.<span></p>
+          <p>Programs declare types, which contain members, and can be organized into namespaces. Classes, structs, and interfaces are examples of types. Fields, methods, properties, and events are examples of members. When C# programs are compiled, they're physically packaged into assemblies. Assemblies typically have the file extension <code class="inline-code">.exe</code> or <code class="inline-code">.dll</code>, depending on whether they implement <span class="emphasis">applications</span> or <span class="emphasis">libraries</span>, respectively.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Programs">
+        <header>Programs</header>
+        <div class="section-content">
+          <p>C# programs constist of one or more files. Each file contains zero or more namespaces. A namespace contains types, such as classes, structs, interfaces, enumerations, and delegates, or other namespaces. The following example is the skeleton of a C# program that contains all of these elements.</p>
+          <code class="block-code">
+            <pre>
+              // A skeleton of a C# program
+              using System;
+
+              // Your program starts here:
+              Console.WriteLine("Hello world!");
+
+              namespace YourNamespace
+              {
+                class YourClass
+                {
+                }
+
+                struct YourStruct
+                {
+                }
+
+                interface IYourInterface
+                {
+                }
+
+                delegate int YourDelegate();
+
+                enum YourEnum
+                {
+                }
+
+                namespace YourNestedNamespace
+                {
+                  struct YourStruct
+                  {
+                  }
+                }
+              }
+            </pre>
+          </code>
+        </div>
+      </section>
+      <section class="main-section" id="Namespaces">
+        <header>Namespaces</header>
+        <div class="section-content">
+          <p>Namespaces are heavily used in C# programming in two ways. First, .NET uses namespaces to organize its many classes, as follows:</p>
+          <code class="block-code">
+            <pre>
+              System.Console.WriteLine("Hello World!");
+            </pre>
+          </code>
+          <p><code class="inline-code">System</code> is a namespace and <code class="inline-code">Console</code> is a class in that namespace. The <code class="inline-code">using</code> keyword can be used so that the complete name isn't required, as in the following example:</p>
+          <code class="block-code">
+            <pre>
+              using System;
+            </pre>
+          </code>
+          <code class="block-code">
+            <pre>
+              Console.WriteLine("Hello World!");
+            </pre>
+          </code>
+        </div>
+        <p>Second, declaring your own namespaces can help you control the scope of class and method names in larger programming projects. Use the <code class="inline-code">namespace</code> keyword to declare a namespace, as in the following example:</p>
+        <code class="block-code">
+            <pre>
+              namespace SampleNamespace
+              {
+                  class SampleClass
+                  {
+                      public void SampleMethod()
+                      {
+                        System.Console.WriteLine("SampleMethod inside SampleNamespace");
+                      }
+                  }
+              }
+            </pre>
+          </code>
+          <p>The name of the namespace must be a valid C# identifier name. Though, beginning with C# 10, you can declare a namespace for all types defined in that file, as shown in the following:</p>
+          <code class="block-code">
+            <pre>
+              namespace SampleNamespace;
+
+              class AnotherSampleClass
+              {
+                  public void AnotherSampleMethod()
+                  {
+                    System.Console.WriteLine("SampleMethod inside SampleNamespace");
+                  }
+              }
+            </pre>
+          </code>
+          <p>Namespaces have the following properties:</p>
+          <ul class="inline-list">
+            <li>They organize large code projects.</li>
+            <li>They're delimited by using the <code class="inline-code">.</code> operator.</li>
+            <li>The <code class="inline-code">using</code> directive obviates the requirement to specify the name of the namespace for every class.</li>
+            <li>The <code class="inline-code">global</code> namespace is the "root" namespace: <code class="inline-code">global::System</code> will always refer to the .NET System namespace.</li>
+          </ul>
+      </section>
+      <section class="main-section" id="Types">
+        <header>Types</header>
+        <div class="section-content">
+          <p>C# is a strongly typed language. Every variable and constant has a type, as does every expression that evaluates to a value. Every method declaration specifies a name, the type and kind (value, reference, or output) for each input parameter and for the return value. The .NET class library defines built-in numeric types and complex types that represent a wide variety of constructs. These include the file system, network connections, collections and arrays of objects, and dates. A typical C# program uses types from the class library and user-defined types that model the concepts that are specific to the program's problem domain.</p>
+          <p>The information stored in a type can include the following item:</p>
+          <ul class="inline-list">
+            <li>The storage space that a variable of the type requires.</li>
+            <li>The maximum and minimum values that it can represent.</li>
+            <li>The members (methods, fields, events, and so on) that it contains.</li>
+            <li>The base type it inherits from.</li>
+            <li>The interface(s) it implements.</li>
+            <li>The kinds of operations that are permitted.</li>
+          </ul>
+        </div>
+      </section>
+      <section class="main-section" id="Members">
+        <header>Members</header>
+        <div class="section-content">
+          <p>Classes and structs have members that represent their data and behavior. A class's members include all the members declared in the class, along with all the members (except constructors and finalizers) declared in all classes in its inheritance hierarchy. Private members in base classes are inherited but are not accessible from derived classes.</p>
+          <table id="member-table" class="width-control">
+            <caption>The following table lists the kinds of members a class or struct may contain:</caption>
+            <thead>
+              <tr>
+                <th scope="col">Member</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Fields</th>
+                <td>Fields are variables declared at class scope. A field may be a built-in numeric type or an instance of another class. For example, a calendar class may have a field that contains the current date.</td>
+              </tr>
+              <tr>
+                <th scope="row">Constants</th>
+                <td>Constants are fields whose value is set at compile time and cannot be changed.</td>
+              </tr>
+              <tr>
+                <th scope="row">Properties</th>
+                <td>Properties are methods on a class that are accessed as if they were fields on that class. A property can provide protection for a class field to keep it from being changed without the knowledge of the object.</td>
+              </tr>
+              <tr>
+                <th scope="row">Methods</th>
+                <td>Methods define the actions that a class can perform. Methods can take parameters that provide input data, and can return output data through parameters. Methods can also return a value directly, without using a parameter.</td>
+              </tr>
+              <tr>
+                <th scope="row">Events</th>
+                <td>Events provide notifications about occurrences, such as button clicks or the successful completion of a method, to other objects. Events are defined and triggered by using delegates.</td>
+              </tr>
+              <tr>
+                <th scope="row">Operators</th>
+                <td>Overloaded operators are considered type members. When you overload an operator, you define it as a public static method in a type.</td>
+              </tr>
+              <tr>
+                <th scope="row">Indexers</th>
+                <td>Indexers enable an object to be indexed in a manner similar to arrays.</td>
+              </tr>
+              <tr>
+                <th scope="row">Constructors</th>
+                <td>Constructors are methods that are called when the object is first created. They are often used to initialize the data of an object.</td>
+              </tr>
+              <tr>
+                <th scope="row">Finalizers</th>
+                <td>Finalizers are used very rarely in C#. They are methods that are called by the runtime execution engine when the object is about to be removed from memory. They are generally used to make sure that any resources which must be released are handled appropriately.</td>
+              </tr>
+              <tr>
+                <th scope="row">Nested Types</th>
+                <td>Nested types are types declared within another type. Nested types are often used to describe objects that are used only by the types that contain them.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="main-section" id="Assemblies">
+        <header>Assemblies</header>
+        <div class="section-content">
+          <p>Assemblies form the fundamental units of deployment, version control, reuse, activation scoping, and security permissions for .NET-based applications. An assembly is a collection of types and resources that are built to work together and form a logical unit of functionality. Assemblies take the form of executable (.<em>exe</em>) or dynamic link library (.<em>dll</em>) files, and are the building blocks of .NET applications. They provide the common language runtime with the information it needs to be aware of type implementations.</p>
+        </div>
+      </section>
+      <section class="main-section" id="Closing_Comments">
+        <header>Closing Comments</header>
+        <div class="section-content">
+          <p>There is plenty more information read about C#. For more, please check out the original <a href="https://docs.microsoft.com/en-us/dotnet/csharp/">C# Documentation</a>, by Microsoft.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="width-control">
+      <p>Created with <span>&hearts;</span> by Grace</p>
+      <p>for a <a href="https://www.freecodecamp.org/learn">freeCodeCamp</a> project</p>
+      <p>Please feel free to check out my <a href="https://github.com/grace-mccarty">other works</a>!</p>
+    </footer>
+  </body>
+  <script>
+    const btn = document.querySelector("#mode-btn");
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    btn.addEventListener("click",
+    function () {
+      if (prefersDarkScheme.matches) {
+        document.body.classList.toggle("light-theme");
+      } else {
+        document.body.classList.toggle("dark-theme");
+      }
+    });
+  </script>
+  <noscript>Sorry, JavaScript is disabled on this browser.</noscript>
+</html>
